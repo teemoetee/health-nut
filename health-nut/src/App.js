@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MacroCalc from './MacroCalc';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
       <h1>Health Nut</h1>
+      <MacroCalc />
       </div>
     );
   }
