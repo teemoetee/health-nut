@@ -7,7 +7,7 @@ const initial_state = {
   weight: 0,
   height: 0,
   age: 0,
-  activity: '',
+  activity: 1,
   ree: 0,
   tdee: 0,
   protein: 0,
@@ -42,6 +42,18 @@ class App extends Component {
     }
     return newTdee;
   }
+  calculateProtein = () => {
+    var newProtein = 0;
+    newProtein = (Number(this.state.weight * .825));
+    return newProtein;
+
+  }
+  calculateFat = () => {
+    //calculate fat
+  }
+  calculateCarbohydrates = () => {
+    //calculate carbs
+  }
 
   render() {
     const weight = this.state.weight;
@@ -71,7 +83,7 @@ class App extends Component {
           <input type='text' name='age' onChange={this.handleChange} /><br />
           <label>Activity: </label>
           <select name='activity' value={this.state.activity} onChange={this.handleChange}>
-            <option value='default'>Select Activity...</option>
+            <option value='1'>Select Activity...</option>
             <option value='1.2'>Sedentary</option>
             <option value='1.375'>Lightly Active</option>
             <option value='1.55'>Moderately Active</option>
@@ -82,9 +94,9 @@ class App extends Component {
           gender={gender}
           ree={this.calculateRee()}
           tdee={this.calculateTdee()}
-          protein={protein}
-          carbohydrates={carbohydrates}
-          fat={fat}
+          protein={this.calculateProtein()}
+          carbohydrates={this.calculateCarbohydrates()}
+          fat={this.calculateFat()}
         />
       </div>
     );
