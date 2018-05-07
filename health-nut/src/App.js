@@ -7,12 +7,7 @@ const initial_state = {
   weight: 0,
   height: 0,
   age: 0,
-  activity: 1,
-  ree: 0,
-  tdee: 0,
-  protein: 0,
-  carbohydrates: 0,
-  fat: 0
+  activity: 1
 }
 
 class App extends Component {
@@ -50,9 +45,19 @@ class App extends Component {
   }
   calculateFat = () => {
     //calculate fat
+    var newFat = 0;
+    var calcTdee = this.calculateTdee();
+    newFat = (Number(calcTdee * .25) / 9);
+    return newFat;
   }
   calculateCarbohydrates = () => {
     //calculate carbs
+    var newCarb = 0;
+    var calcTdee = this.calculateTdee();
+    var calcPro = this.calculateProtein();
+    var calcFat = this.calculateFat();
+    newCarb = (Number(calcTdee - (calcPro * 4) - (calcFat*9)));
+    return newCarb;
   }
 
   render() {
