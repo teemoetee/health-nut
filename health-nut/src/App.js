@@ -7,7 +7,8 @@ const initial_state = {
   weight: 0,
   height: 0,
   age: 0,
-  activity: 1
+  activity: 1,
+  goal: 0
 }
 
 class App extends Component {
@@ -22,24 +23,24 @@ class App extends Component {
   calculateRee = () => {
     var newRee = 0;
     if(this.state.gender === 'male') {
-      newRee = Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5);
+      newRee = Math.round(Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5));
     }else if(this.state.gender === 'female') {
-      newRee = Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161);
+      newRee = Math.round(Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161));
     }
     return newRee;
   }
   calculateTdee = () => {
     var newTdee = 0;
     if(this.state.gender === 'male') {
-      newTdee = (Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5) * this.state.activity);
+      newTdee = Math.round((Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5) * this.state.goal) * this.state.activity);
     }else if(this.state.gender === 'female') {
-      newTdee = (Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161) * this.state.activity);
+      newTdee = Math.round((Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161) * this.state.goal) * this.state.activity);
     }
     return newTdee;
   }
   calculateProtein = () => {
     var newProtein = 0;
-    newProtein = (Number((this.state.weight * 2.2) * .825));
+    newProtein = Math.round(Number((this.state.weight * 2.2) * .825));
     return newProtein;
 
   }
@@ -47,7 +48,7 @@ class App extends Component {
     //calculate fat
     var newFat = 0;
     var calcTdee = this.calculateTdee();
-    newFat = (Number(calcTdee * .25) / 9);
+    newFat = Math.round(Number(calcTdee * .25) / 9);
     return newFat;
   }
   calculateCarbohydrates = () => {
@@ -56,21 +57,13 @@ class App extends Component {
     var calcTdee = this.calculateTdee();
     var calcPro = this.calculateProtein();
     var calcFat = this.calculateFat();
-    newCarb = (Number(calcTdee - (calcPro * 4) - (calcFat*9)) / 4);
+    newCarb = Math.round(Number(calcTdee - (calcPro * 4) - (calcFat * 9)) / 4);
     return newCarb;
   }
 
   render() {
-    const weight = this.state.weight;
-    const height = this.state.height;
-    const age = this.state.age;
     const gender = this.state.gender;
-    const ree = this.state.ree;
-    const tdee = this.state.tdee;
-    const protein = this.state.protein;
-    const carbohydrates = this.state.carbohydrates;
-    const fat = this.state.fat;
-
+    
     return (
       <div id='master'>
         <div id='input'>
@@ -93,6 +86,13 @@ class App extends Component {
             <option value='1.375'>Lightly Active</option>
             <option value='1.55'>Moderately Active</option>
             <option value='1.725'>Very Active</option>
+          </select><br />
+          <label>Goal: </label>
+          <select name='goal' value={this.state.goal} onChange={this.handleChange}>
+          <option value='1'>Select Goal...</option>
+          <option value='.8'>Lose Weight</option>
+          <option value='1'>Maintain Weight</option>
+          <option value='1.2'>Gain Muscle</option>
           </select><br /><br />
         </div>
         <MacroCalc
