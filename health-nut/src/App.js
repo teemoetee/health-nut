@@ -39,7 +39,7 @@ class App extends Component {
   }
   calculateProtein = () => {
     var newProtein = 0;
-    newProtein = (Number(this.state.weight * .825));
+    newProtein = (Number((this.state.weight * 2.2) * .825));
     return newProtein;
 
   }
@@ -56,7 +56,7 @@ class App extends Component {
     var calcTdee = this.calculateTdee();
     var calcPro = this.calculateProtein();
     var calcFat = this.calculateFat();
-    newCarb = (Number(calcTdee - (calcPro * 4) - (calcFat*9)));
+    newCarb = (Number(calcTdee - (calcPro * 4) - (calcFat*9)) / 4);
     return newCarb;
   }
 
