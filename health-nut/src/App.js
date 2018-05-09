@@ -106,7 +106,7 @@ class App extends Component {
                     </div>
                     <div class="form-group">
                       <select id="lunch" class="custom-select mb-2 mr-sm-2 mb-sm-0" data-live-search="true" title="Please select Goal level..." name='goal' value={this.state.goal} onChange={this.handleChange}>
-                        <option value='1'>Select Goal...</option>
+                        <option value=''>Select Goal...</option>
                         <option value='.8'>Lose Weight</option>
                         <option value='1'>Maintain Weight</option>
                         <option value='1.2'>Gain Muscle</option>
