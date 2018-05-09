@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/bootstrap.css';
 
 class MacroCalc extends Component {
     render() {
         var gender = this.props.gender;
         return (
-            <div id='output'>
-                <div>Gender: {gender}</div><br />
-                <div>REE:  {this.props.ree}</div><br />
-                <div>TDEE: {this.props.tdee}</div><br />
-                <div><b><em>Protein:</em></b> {this.props.protein}</div><br />
-                <div><b><em>Carbohydrates:</em></b> {this.props.carbohydrates}</div><br />
-                <div><b><em>Fat:</em></b> {this.props.fat}</div><br />
+            <div id='container'>
+            <p class='text-center col-lg-6'></p>
+                <div class="jumbotron">
+                    <div class="container">
+                        <h1 class='text-center'>Macronutrients</h1>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Gender</th>
+                                        <th>Ree</th>
+                                        <th>TDEE</th>
+                                        <th>Protein(g)</th>
+                                        <th>Carbohydrates(g)</th>
+                                        <th>Fat(g)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{gender}</td>
+                                        <td>{this.props.ree}</td>
+                                        <td>{this.props.tdee}</td>
+                                        <td>{this.props.protein}</td>
+                                        <td>{this.props.carbohydrates}</td>
+                                        <td>{this.props.fat}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
 import MacroCalc from './MacroCalc';
+import './css/bootstrap.css';
+
 
 const initial_state = {
   gender: '',
@@ -22,18 +24,18 @@ class App extends Component {
   }
   calculateRee = () => {
     var newRee = 0;
-    if(this.state.gender === 'male') {
+    if (this.state.gender === 'male') {
       newRee = Math.round(Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5));
-    }else if(this.state.gender === 'female') {
+    } else if (this.state.gender === 'female') {
       newRee = Math.round(Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161));
     }
     return newRee;
   }
   calculateTdee = () => {
     var newTdee = 0;
-    if(this.state.gender === 'male') {
+    if (this.state.gender === 'male') {
       newTdee = Math.round((Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5) * this.state.goal) * this.state.activity);
-    }else if(this.state.gender === 'female') {
+    } else if (this.state.gender === 'female') {
       newTdee = Math.round((Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161) * this.state.goal) * this.state.activity);
     }
     return newTdee;
@@ -63,49 +65,87 @@ class App extends Component {
 
   render() {
     const gender = this.state.gender;
-    
+
     return (
-      <div id='master'>
-        <div id='input'>
-          <label>Gender: </label>
-          <select name='gender' value={this.state.gender} onChange={this.handleChange}>
-            <option value=''>Select Gender...</option>
-            <option value='male'>Male</option>
-            <option value='female'>Female</option>
-          </select><br />
-          <label>Weight(Kg): </label>
-          <input type='text' name='weight' onChange={this.handleChange} /><br />
-          <label>Height(Cm): </label>
-          <input type='text' name='height' onChange={this.handleChange} /><br />
-          <label>Age(y): </label>
-          <input type='text' name='age' onChange={this.handleChange} /><br />
-          <label>Activity: </label>
-          <select name='activity' value={this.state.activity} onChange={this.handleChange}>
-            <option value='1'>Select Activity...</option>
-            <option value='1.2'>Sedentary</option>
-            <option value='1.375'>Lightly Active</option>
-            <option value='1.55'>Moderately Active</option>
-            <option value='1.725'>Very Active</option>
-          </select><br />
-          <label>Goal: </label>
-          <select name='goal' value={this.state.goal} onChange={this.handleChange}>
-          <option value='1'>Select Goal...</option>
-          <option value='.8'>Lose Weight</option>
-          <option value='1'>Maintain Weight</option>
-          <option value='1.2'>Gain Muscle</option>
-          </select><br /><br />
+      <div id='container'>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2">
+          <div class="header">
+            <h1 class='text-center'>Health Nut</h1>
+            </div>
+            <div class="jumbotron">
+              <div class="container col-lg-10">
+                <div class="row" id='input'>
+                  <form class="form-inline">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Gender</span>
+                    </div>
+                    <div class="form-group">
+                      <select id="lunch" class="custom-select mb-2 mr-sm-2 mb-sm-0" data-live-search="true" title="Please select a gender..." name='gender' value={this.state.gender} onChange={this.handleChange}>
+                        <option value=''>Select Gender...</option>
+                        <option value='male'>Male</option>
+                        <option value='female'>Female</option>
+                      </select>
+                    </div>
+
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Activity</span>
+                    </div>
+                    <div class="form-group">
+                      <select id="lunch" class="custom-select mb-2 mr-sm-2 mb-sm-0" data-live-search="true" title="Please select activity level..." name='activity' value={this.state.activity} onChange={this.handleChange}>
+                        <option value='1'>Select Activity...</option>
+                        <option value='1.2'>Sedentary</option>
+                        <option value='1.375'>Lightly Active</option>
+                        <option value='1.55'>Moderately Active</option>
+                        <option value='1.725'>Very Active</option>
+                      </select>
+                    </div>
+
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Goal</span>
+                    </div>
+                    <div class="form-group">
+                      <select id="lunch" class="custom-select mb-2 mr-sm-2 mb-sm-0" data-live-search="true" title="Please select Goal level..." name='goal' value={this.state.goal} onChange={this.handleChange}>
+                        <option value='1'>Select Goal...</option>
+                        <option value='.8'>Lose Weight</option>
+                        <option value='1'>Maintain Weight</option>
+                        <option value='1.2'>Gain Muscle</option>
+                      </select>
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Weight</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Weight in Kg" name='weight' onChange={this.handleChange} />
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Height</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Height in Cm" name='height' onChange={this.handleChange} />
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Age</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Age in years" name='age' onChange={this.handleChange} />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <MacroCalc
+              gender={gender}
+              ree={this.calculateRee()}
+              tdee={this.calculateTdee()}
+              protein={this.calculateProtein()}
+              carbohydrates={this.calculateCarbohydrates()}
+              fat={this.calculateFat()}
+            />
+          </div>
         </div>
-        <MacroCalc
-          gender={gender}
-          ree={this.calculateRee()}
-          tdee={this.calculateTdee()}
-          protein={this.calculateProtein()}
-          carbohydrates={this.calculateCarbohydrates()}
-          fat={this.calculateFat()}
-        />
       </div>
     );
   }
 }
-
 export default App;
