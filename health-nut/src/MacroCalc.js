@@ -6,10 +6,10 @@ class MacroCalc extends Component {
         var gender = this.props.gender;
         return (
             <div id='container'>
+            <h1 class='text-center'>Macronutrients</h1>
             <p class='text-center col-lg-6'></p>
                 <div class="jumbotron">
                     <div class="container">
-                        <h1 class='text-center'>Macronutrients</h1>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>

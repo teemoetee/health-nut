@@ -24,18 +24,18 @@ class App extends Component {
   }
   calculateRee = () => {
     var newRee = 0;
-    if (this.state.gender === 'male') {
+    if (this.state.gender === 'Male') {
       newRee = Math.round(Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5));
-    } else if (this.state.gender === 'female') {
+    } else if (this.state.gender === 'Female') {
       newRee = Math.round(Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161));
     }
     return newRee;
   }
   calculateTdee = () => {
     var newTdee = 0;
-    if (this.state.gender === 'male') {
+    if (this.state.gender === 'Male') {
       newTdee = Math.round((Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age + 5) * this.state.goal) * this.state.activity);
-    } else if (this.state.gender === 'female') {
+    } else if (this.state.gender === 'Female') {
       newTdee = Math.round((Number(10 * this.state.weight + 6.25 * this.state.height - 5 * this.state.age - 161) * this.state.goal) * this.state.activity);
     }
     return newTdee;
@@ -83,8 +83,8 @@ class App extends Component {
                     <div class="form-group">
                       <select id="lunch" class="custom-select mb-2 mr-sm-2 mb-sm-0" data-live-search="true" title="Please select a gender..." name='gender' value={this.state.gender} onChange={this.handleChange}>
                         <option value=''>Select Gender...</option>
-                        <option value='male'>Male</option>
-                        <option value='female'>Female</option>
+                        <option value='Male'>Male</option>
+                        <option value='Female'>Female</option>
                       </select>
                     </div>
 
