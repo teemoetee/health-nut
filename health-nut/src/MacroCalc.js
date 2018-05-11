@@ -41,7 +41,6 @@ class MacroCalc extends Component {
                 <p class='text-center'><h4>Here is a bit of information you will need to decipher the information above!<hr /></h4></p>
                 <p class='text-left'>
                     <h5 class='text-success'>Input:</h5><br />
-                    <b class='text-warning'>Gender - </b>This is a simple bit, and <em>should</em> be relatively easy to figure out.<br /><br />
                     <b class='text-warning'>Goal:</b>
                     <dl>Lose Weight - This will put you in a 20% calorie deficit to promote healthy weight loss.</dl>
                     <dl>Maintain Weight - This will allow you to eat at macro levels that will help you maintain your current weight.</dl>
