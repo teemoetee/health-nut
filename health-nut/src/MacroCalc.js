@@ -17,8 +17,8 @@ class MacroCalc extends Component {
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Ree</th>
-                                        <th>TDEE</th>
+                                        <th>Ree(cal)</th>
+                                        <th>TDEE(cal)</th>
                                         <th>Protein(g)</th>
                                         <th>Carbohydrates(g)</th>
                                         <th>Fat(g)</th>
