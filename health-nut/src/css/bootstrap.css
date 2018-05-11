@@ -76,6 +76,8 @@ body {
 hr {
   box-sizing: content-box;
   height: 0;
+  border-color: #fff;
+  background-color: #fff;
   overflow: visible;
 }
 
@@ -391,6 +393,12 @@ h6, .h6 {
   font-size: 1rem;
 }
 
+.inputVals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
@@ -552,6 +560,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  
 }
 
 @media (min-width: 576px) {
@@ -2245,6 +2254,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   flex-flow: row wrap;
   -ms-flex-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .form-inline .form-check {
