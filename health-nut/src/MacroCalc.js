@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/bootstrap.css';
-
+//stateless component
 class MacroCalc extends Component {
     render() {
         var gender = this.props.gender;
